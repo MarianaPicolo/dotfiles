@@ -1,0 +1,21 @@
+[core]
+	editor = vim
+[user]
+	name = Mariana Picolo
+[alias]
+	ci = commit
+	st = status
+	co = checkout
+	sw = switch
+	swc = switch -c
+	ll = log --pretty=oneline --graph --decorate --all
+	del = branch -D
+	br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+	undo = reset HEAD~1 --mixed
+  res = !git reset --hard
+  p = !git push origin HEAD
+	rbc = rebase --continue
+  rba = rebase --abort
+  rbs = rebase --skip
+[commit]
+	gpgsign = true
