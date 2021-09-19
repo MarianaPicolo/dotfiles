@@ -1,22 +1,55 @@
 [core]
 	editor = vim
+
 [user]
 	name = Mariana Picolo
+
 [alias]
 	ci = commit
 	st = status
-	co = checkout
-	cp = cherry-pick
+	p = !git push origin HEAD
+
+  # Branches: log - switch - checkout
+	br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)[%(authorname)]' --sort=-committerdate
+	del = branch -D
 	sw = switch
 	swc = switch -c
-	ll = log --format='%C(auto)%h -%d %s%Cgreen %as%Creset'
- 	del = branch -D
-	br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)[%(authorname)]' --sort=-committerdate
-	undo = reset HEAD~1 --mixed
-  	res = !git reset --hard
-  	p = !git push origin HEAD
+	co = checkout
+
+  # Rebase
 	rbc = rebase --continue
-  	rba = rebase --abort
-  	rbs = rebase --skip
+	rba = rebase --abort
+	rbs = rebase --skip
+  
+  # Reset
+	res = !git reset --hard
+	unstage = reset HEAD              # remove files from index (tracking)
+	undo = reset --soft HEAD^         # go back before last commit, with files in uncommitted state
+	filelog = log -u                  # show changes to a file
+
+  # Fetch
+	fa = fetch --all
+	f = fetch origin --prune --prune-tags --tags
+
+  # Log
+	l = log --graph --date=short
+	ll = log --format='%C(auto)%h -%d %s%Cgreen %as%Creset'
+  	changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+
 [commit]
 	gpgsign = true
+
+[color]
+	ui = true
+
+[color "status"]
+	added       = green
+	changed     = yellow 
+	untracked   = cyan
+	branch      = magenta
+	nobranch    = red
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = cyan
