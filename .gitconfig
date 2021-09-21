@@ -3,11 +3,18 @@
 
 [user]
 	name = Mariana Picolo
+	
+[pull]
+	rebase = true
+	
+[fetch]
+	prune = true
 
 [alias]
 	ci = commit
 	st = status
 	p = !git push origin HEAD
+	cp = cherry-pick
 
   # Branches: log - switch - checkout
 	br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)[%(authorname)]' --sort=-committerdate
