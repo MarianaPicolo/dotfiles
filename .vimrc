@@ -198,12 +198,12 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 nnoremap <c-z> :UndotreeToggle<CR>
 
 "*******************************************************************
-" Better use for arrow keys?
- " Arrow keys set up for easy buffer switching
-"nnoremap <left> :bprev<cr>
-"nnoremap <right> :bnext<cr>
-"nnoremap <down> :buffer #<cr>
-"nnoremap <up> :buffers<cr>:buffer<space>
+" Better use for arrow keys
+" Arrow keys set up for easy buffer switching
+nnoremap <left> :bprev<cr>
+nnoremap <right> :bnext<cr>
+nnoremap <down> :buffer #<cr>
+nnoremap <up> :buffers<cr>:buffer<space>
  
 "*******************************************************************
 nnoremap <leader>h :wincmd h<CR>
@@ -212,3 +212,11 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 
 nnoremap <Leader>ps :Rg<SPACE>
+
+"*******************************************************************
+" Swap the colon and semi-colon keys
+nnoremap ; :
+nnoremap : ;
+
+nnoremap j gj
+nnoremap k gk
