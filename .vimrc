@@ -67,6 +67,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'mbbill/undotree'
 Plug 'scrooloose/nerdtree'
+Plug 'bronson/vim-trailing-whitespace'
 
 " Language related
 Plug 'jremmen/vim-ripgrep'
