@@ -1,24 +1,24 @@
 #include QMK_KEYBOARD_H
 
-#define _QWERTY 0
+#define _DVORAK 0
 #define _LOWER 1
 #define _RAISE 2
 #define _ADJUST 3
 
 // Left-hand home row mods: GASC
 // #define HOME_A LGUI_T(KC_A)
-#define HOME_S LALT_T(KC_S)
-#define HOME_D LSFT_T(KC_D)
-#define HOME_F LCTL_T(KC_F)
+#define HOME_O LALT_T(KC_O)
+#define HOME_E LSFT_T(KC_E)
+#define HOME_U LCTL_T(KC_U)
 
 // Right-hand home row mods
-#define HOME_J RCTL_T(KC_J)
-#define HOME_K RSFT_T(KC_K)
-#define HOME_L LALT_T(KC_L)
+#define HOME_H RCTL_T(KC_H)
+#define HOME_T RSFT_T(KC_T)
+#define HOME_N LALT_T(KC_N)
 // #define HOME_SCLN RGUI_T(KC_SCLN)
 
 enum custom_keycodes {
-    QWERTY = SAFE_RANGE,
+    DVORAK = SAFE_RANGE,
     LOWER,
     RAISE,
     ADJUST,
@@ -26,17 +26,17 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-    [_QWERTY] = LAYOUT(
+    [_DVORAK] = LAYOUT(
         //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
            KC_GESC, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL,
         //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-           KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_SCLN, KC_BSLS,
+           KC_TAB,  KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,                               KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_SLSH,
         //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-           KC_LCTL, KC_A,    HOME_S,  HOME_D,  HOME_F,  LT(2, KC_G),                       LT(2, KC_H), HOME_J, HOME_K,  HOME_L, KC_SLSH, KC_QUOT,
+           KC_LCTL, KC_A,    HOME_O,  HOME_E,  HOME_U,  KC_I,                               KC_D,    HOME_H,  HOME_T,  HOME_N,  KC_S,    KC_MINS,
         //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-           KC_LALT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,   LT(1, KC_ENT),     KC_NO,   KC_N,    KC_M,    KC_P,    KC_COMM, KC_DOT,  KC_RSFT,
+           KC_LSFT, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,   LT(1, KC_ENT),     KC_NO,   KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_RSFT,
         //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                          KC_LGUI, KC_BSPC, KC_NO,                    LT(1, KC_SPC), TG(2), MO(2)
+                                          KC_LGUI,  KC_BSPC, KC_NO,                   LT(1, KC_SPC),TG(2), MO(2)
                                       // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
         ),
 
@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
            KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                            KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PGDN,
         //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-           KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_MINS, KC_LCBR,                            KC_RCBR, KC_PLUS, KC_NO,   KC_NO,   KC_NO,   KC_NO,
+           KC_NO,   KC_NO,   KC_NO,   KC_PIPE, KC_MINS, KC_LCBR,                            KC_RCBR, KC_PLUS, KC_NO,   KC_NO,   KC_NO,   KC_NO,
         //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
            _______, KC_NO,   KC_NO,   KC_NO,   KC_UNDS, KC_LBRC, KC_TAB,           KC_NO,  KC_RBRC, KC_PEQL, KC_NO,   KC_NO,   KC_NO,   KC_NO,
         //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
@@ -84,9 +84,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case QWERTY:
+        case DVORAK:
             if (record->event.pressed) {
-                set_single_persistent_default_layer(_QWERTY);
+                set_single_persistent_default_layer(_DVORAK);
             }
             return false;
             break;
